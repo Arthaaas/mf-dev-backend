@@ -1,0 +1,7 @@
+﻿services:
+  mf-dev-backend:
+    image: mf-dev-backend
+    build:
+      context: .
+      dockerfile: mf-dev-backend/Dockerfile
+

@@ -1,0 +1,24 @@
+# Build output and restored packages
+bin/
+obj/
+packages/
+
+# Rider / IntelliJ IDEA
+.idea/
+*.iml
+_ReSharper.Caches/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+
+# Operating system files
+.DS_Store
+Thumbs.db
