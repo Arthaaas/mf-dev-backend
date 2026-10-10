@@ -1,7 +1,20 @@
 ﻿services:
-  mf-dev-backend:
-    image: mf-dev-backend
-    build:
-      context: .
-      dockerfile: mf-dev-backend/Dockerfile
+  #mf-dev-backend:
+    #image: mf-dev-backend
+    #build:
+      #context: .
+      #dockerfile: mf-dev-backend/Dockerfile
 
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Express"
+      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}"
+    ports:
+      - "127.0.0.1:1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+volumes:
+  sqlserver-data:
