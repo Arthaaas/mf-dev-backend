@@ -1,7 +1,21 @@
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 using mf_dev_backend.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var supportedCultures = new[]
+{
+    new CultureInfo("pt-BR")
+};
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("pt-BR");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,6 +36,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRequestLocalization();
 app.UseRouting();
 
 app.UseAuthorization();

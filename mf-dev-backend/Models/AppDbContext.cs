@@ -9,4 +9,5 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Veiculo> Veiculos { get; set; }
+    public DbSet<Consumo> Consumos { get; set; }
 }
